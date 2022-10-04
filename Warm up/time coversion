@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+/*
+ * Complete the 'timeConversion' function below.
+ *
+ * The function is expected to return a STRING.
+ * The function accepts STRING s as parameter.
+ */
+
+string timeConversion(string s) {
+string hour_str=s.substr(0,2);
+int hour=stoi(hour_str);
+size_t check =s.find("PM");
+if(check!=string::npos){
+    if(hour+12<24){
+        hour_str=to_string(hour+12);
+    }
+    
+}
+else{
+    if(hour==12){
+        hour_str="00";
+    }
+}
+return s.replace(0,2,hour_str).erase(s.size()-2);
+}
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    string s;
+    getline(cin, s);
+
+    string result = timeConversion(s);
+
+    fout << result << "\n";
+
+    fout.close();
+
+    return 0;
+}
