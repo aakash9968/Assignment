@@ -1,0 +1,11 @@
+class Solution {
+public:
+    int findFinalValue(vector<int>& nums, int o) {
+        unordered_map<int,int> h;
+        for(auto &i: nums) h[i]++;
+
+    while(h[o]) o*=2;
+
+    return o;
+    }
+};
