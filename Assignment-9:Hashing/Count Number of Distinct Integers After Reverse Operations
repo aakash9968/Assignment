@@ -1,0 +1,34 @@
+class Solution {
+public:
+
+int rev(int n)
+{
+    int n1 = 0;
+    if (n % 10 == n)
+        return n;
+
+    while (n > 0)
+    {
+        n1 = (n1 * 10) + (n % 10);
+        n /= 10;
+    }
+    return n1;
+}
+
+   
+
+  
+    int countDistinctIntegers(vector<int>& nums) {
+        set<int> s;
+        for(auto &i: nums){
+        s.insert(i);
+        s.insert(rev(i));
+        }
+        int count=0;
+        for(auto &i:s){
+        count++;
+        }
+        return count;
+    }
+    
+};
